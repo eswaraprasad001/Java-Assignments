@@ -1,0 +1,73 @@
+body {
+   
+    margin: 0;
+    background: radial-gradient(#387989, #6dd5ed);
+    background-repeat:no-repeat;
+  }
+  
+  h1 {
+    color: brown;
+    margin-left: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .one {
+    height: 100px;
+    margin: 20px;
+    background: radial-gradient(#fceabb, #f8b500);
+    background-repeat:inherit;
+  }
+  
+  .two {
+    height: 100px;
+    margin: 20px;
+    background: radial-gradient(circle farthest-side, #fceabb, #f8b500);
+    background-repeat: no-repeat;
+  }
+  .text{
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 2rem;
+  }
+  .linear{
+    background-image: linear-gradient(to right, #FF9933 , white,#138808);
+    height: 50px;
+    margin-bottom: 2rem;
+    
+  }
+   body {
+    padding: 3rem;
+    counter-reset: chapter;
+  }
+   
+  h2::before {
+    color: red;
+    content: "Chapter " counter(chapter) ": ";
+    counter-increment: chapter;
+  }
+  .counter{
+      background-color: #e2ca8d;
+      padding: 2rem;
+      margin-bottom: 2rem;
+  }
+  .gradient{
+    color: var(--blue);
+    background-color: var(--white);
+    padding: 15px;
+    background-image:
+      repeating-conic-gradient(
+        from 0deg, 
+        #ff8a00 0deg 30deg, 
+        #e52e71 30deg 60deg
+    );
+  }
+  :root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+  }
+
+
+
+
