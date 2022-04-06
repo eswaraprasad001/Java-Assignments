@@ -1,0 +1,35 @@
+* {
+  text-align: center;
+  font-size: medium;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: aquamarine;
+}
+
+body {
+  background-color: aquamarine;
+}
+
+h1 {
+  color: green;
+}
+
+p {
+  color: green;
+}
+
+.container {
+  background-color: red;
+  background-image: -webkit-gradient(linear, left top, right top, from(magenta), color-stop(red), color-stop(orange), color-stop(yellow), color-stop(green), color-stop(blue), to(purple...));
+  background-image: linear-gradient(to right, magenta, red, orange, yellow, green, blue, purple...);
+}
+
+.body_basic, .extend {
+  background-color: black;
+  font-size: large;
+  color: beige;
+}
+
+.extend {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/*# sourceMappingURL=index.css.map */

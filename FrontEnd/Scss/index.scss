@@ -1,0 +1,40 @@
+@import "font";
+
+$myFont: sans-serif;
+$myColor: red;
+
+body{
+    background-color: aquamarine;
+}
+
+h1 {
+    $myColor: green !global;
+    color: $myColor;
+  }
+  
+  p {
+    color: $myColor;
+  }
+  // variable arguments(mixin)
+
+  @mixin linear-gradient($direction, $gradients...) {  
+    background-color: nth($gradients, 2); //nth is to access the number of argument  
+    background-image: linear-gradient($direction, $gradients...);  
+  }  
+  .container {  
+    @include linear-gradient(to right, magenta, red, orange, yellow, green, blue, purple);  
+  }  
+
+ .body_basic{
+   background-color: black;
+   font-size: large;
+   color: beige;
+ }
+
+  .extend{
+    @extend .body_basic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+  }
+  
+  @debug str-slice("Hello world!", 2, 5);
+ 
