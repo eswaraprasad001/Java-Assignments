@@ -1,0 +1,123 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    
+}
+
+#container {
+    height: 100vh;
+    width: 100vw;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 4px;
+
+    /* width: 150px; */
+    /* height: 350px; */
+
+    background-color:rgb(202, 202, 202);
+    padding: 12px;
+}
+
+#display {
+    background-color: #F8F8F8;
+    border: 1.5px solid rgba(0, 0, 0, .2);
+    border-radius: 3px;
+    max-width: 300px;
+    font-family: 'Texas Instruments TI-84 series Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#top,
+#bottom {
+    display: flex;
+    padding: 10px 6px;
+    /* text-align: right; */
+    height: 45px;
+    color: rgba(0, 0, 0, .65);
+
+    justify-content: flex-end;
+}
+
+#top {
+    font-size: 18px;
+}
+
+#bottom {
+    font-size: 26px;
+    padding-top: 3px;
+    align-items: flex-end;
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 4px;
+    grid-row-gap: 4px;
+}
+
+.operator:not(#exponent) {
+    background-color: rgb(218, 162, 59);
+    border: 2px solid rgb(192, 147, 62);
+}
+
+.clear {
+    background-color: rgb(59, 147, 219);
+    border: 2px solid rgb(55, 122, 177);
+}
+
+#zero { grid-area: 5 / 1 / 6 / 2; }
+#decimal { grid-area: 5 / 2 / 6 / 3; }
+#equal { grid-area: 5 / 3 / 6 / 4; }
+#one { grid-area: 4 / 1 / 5 / 2; }
+#two { grid-area: 4 / 2 / 5 / 3; }
+#three { grid-area: 4 / 3 / 5 / 4; }
+#four { grid-area: 3 / 1 / 4 / 2; }
+#five { grid-area: 3 / 2 / 4 / 3; }
+#six { grid-area: 3 / 3 / 4 / 4; }
+#seven { grid-area: 2 / 1 / 3 / 2; }
+#eight { grid-area: 2 / 2 / 3 / 3; }
+#nine { grid-area: 2 / 3 / 3 / 4; }
+#exponent { grid-area: 1 / 1 / 2 / 2; }
+#sign { grid-area: 1 / 2 / 2 / 3; }
+#squareRoot { grid-area: 1 / 3 / 2 / 4; }
+#clear { grid-area: 1 / 4 / 2 / 5; }
+#divide { grid-area: 2 / 4 / 3 / 5; }
+#multiply { grid-area: 3 / 4 / 4 / 5; }
+#subtract { grid-area: 4 / 4 / 5 / 5; }
+#add { grid-area: 5 / 4 / 6 / 5; }
+
+button {
+    background-color: black; 
+    border: 1px solid rgb(172, 172, 172);
+    width: 60px;
+    height: 60px;
+    border-radius: 3px;
+    transition: filter 200ms;
+
+    font-size: 20px;
+    color:white;
+}
+
+button:hover {
+    filter: brightness(0.8);
+    cursor: pointer;
+}
+
+button:active {
+    filter: brightness(0.6);
+}

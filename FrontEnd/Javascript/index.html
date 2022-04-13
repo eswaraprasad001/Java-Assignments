@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<script>
+    function validateForm() {
+      let x = document.forms["myForm"][0].value;
+      let y = document.forms["myForm"][2].value;
+      var passw= "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
+    
+      if (x === "eswar"&& y.match(passw)) {
+        alert("Welcome");
+        return false;
+      }
+      else{
+      alert("Invalid User or change password");
+      return false;
+      }
+    }
+    window.onload=function(){
+    var mb = document.getElementById("class");
+    mb.addEventListener("mouseover", handler);
+    mb.addEventListener("click", handler2);
+    }
+    
+    function handler() {
+      document.getElementById("demo").innerHTML += "W3Schools Logo!<br>";
+    }
+    
+    function handler2() {
+      window.open('https://www.w3schools.com/', '_blank');
+    }
+</script>
+<body>
+<a id="class">
+<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+</a>
+<form name="myForm"onsubmit="return validateForm()" method="post">
+  Name: <br> 
+  <input type="text" name="fname"><br>
+  Age: <br>
+  <input type="number" name="Age"><br>
+  Password: <br>
+  <input type="text" name="password"><br>
+
+  <input type="submit" value="Submit">
+</form>
+<p id="demo"></p>
+
+</body>
+</html>
