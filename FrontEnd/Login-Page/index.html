@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <h1>Hotel Booking System</h1>
+        <div class="form-box" id="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+
+            <form id="login" class="input-group" >
+                <div class="form-control">
+                    <input type="text" id="username" class="input-field " placeholder="User Name">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                
+                <div class="form-control">
+                    <input type="text" id="password" class="input-field " placeholder="Password">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+
+                <p id="demo"></p>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+            <form id="register" class="input-group">
+
+                <div class="form-control">
+                    <input type="text" id="usernamer" class="input-field" placeholder="User Name">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                
+                <div class="form-control">
+                    <input type="email" id="emailr" class="input-field" placeholder="Email Address">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                
+                <div class="form-control">
+                    <input type="text" id="passwordr" class="input-field" placeholder="Password">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+
+                <div class="form-control">
+                    <input type="text" id="cpasswordr" class="input-field" placeholder="Confirm Password">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                
+                <input type="checkbox" class="checkbox"> <span>I agree to terms and condition</span>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+
+        </div>
+        
+    </div>
+
+    <script>
+        // const form = document.getElementById('login')
+        let x = document.getElementById('login');
+        let y = document.getElementById('register');
+        let z = document.getElementById('btn');
+
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const formBox = document.getElementById('form-box');
+
+
+        x.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            checkInputs();
+        });
+
+        y.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            checkInputsRegister();
+        });
+
+// login page
+        function checkInputs() {
+            const usernameValue =  username.value.trim()
+            const passwordValue =  password.value.trim()
+            
+            if( usernameValue == ''){
+                setErrorFor(username, 'Username Cannot be Blank');
+            }else{
+                setSuccessFor(username);
+            }
+            if( passwordValue == ''){
+                setErrorFor(password, 'Password Cannot be Blank');
+            }else{
+                setSuccessFor(password);
+            }
+
+        }
+
+// Registration page
+function checkInputsRegister() {
+            const usernameValue =  usernamer.value.trim()
+            const emailValue =  emailr.value.trim()
+            const passwordValue =  passwordr.value.trim()
+            const cpasswordValue =  cpasswordr.value.trim()
+            
+            if( usernameValue == ''){
+                setErrorFor(usernamer, 'Username Cannot be Blank');
+            }else{
+                setSuccessFor(usernamer);
+            }
+            if( emailValue == ''){
+                setErrorFor(emailr, 'Email Cannot be Blank');
+            }else if(!isEmail(emailValue)){
+                setErrorFor(emailr, 'Invalid Email Address');
+            }else{
+                setSuccessFor(emailr);
+            }
+            if( passwordValue == ''){
+                setErrorFor(passwordr, 'Password Cannot be Blank');
+            }else{
+                setSuccessFor(passwordr);
+            }
+            if( cpasswordValue == ''){
+                setErrorFor(cpasswordr, 'Confirm Password Cannot be Blank');
+            }
+            else if(!isPassword(passwordValue)){
+                setErrorFor(passwordr, 'Minimum eight characters, at least one uppercase letter, one lowercase letter and one number:');
+            }
+
+            else if(passwordValue != cpasswordValue){
+                setErrorFor(cpasswordr, 'Confirm Password must match Password value');
+            }
+            else{
+                setSuccessFor(cpasswordr);
+            }
+
+        }
+// set errors
+        function setErrorFor(input, message) {
+            const formControl = input.parentElement;
+            const small = formControl.querySelector('small');
+
+            small.innerText = message;
+
+            formControl.className = 'form-control error';
+        }
+// Set success
+        function setSuccessFor(input) {
+            const formControl = input.parentElement;
+            formControl.className = 'form-control success';
+        }
+// check Email
+        function isEmail(email) {
+            return /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)
+        }
+        function isPassword(password){
+            return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password)
+        }
+        function register(){
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
+        function login(){
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0px";
+            formBox.style.height = "600px";
+        }
+        
+        
+    </script>
+
+
+<script src="https://kit.fontawesome.com/6374ade89f.js" crossorigin="anonymous"></script>
+</body>
+</html>
