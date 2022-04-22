@@ -1,0 +1,65 @@
+<h1>Odd/Even</h1>
+
+
+
+
+<div  *ngFor="let item of list1;odd as o">
+
+    <div *ngIf="item%2==0; then thenBlock;else elseBlock"></div>
+
+
+    <ng-template #thenBlock>
+  <h2 [style.background-color]="'green'"> Even : {{item}}</h2>
+    </ng-template>
+
+    <ng-template #elseBlock>
+  <h2 [style.background-color]="'red'">Odd : {{item}}</h2>
+    </ng-template>
+
+</div>
+
+
+
+<ul *ngFor="let item of list1; index as i; odd as o">
+
+
+<li [style.color]="o ? 'red':'green'">{{item}}</li>
+
+</ul>
+
+
+
+<!-- <div  *ngFor="let item of list1;index as i">
+
+  <h2 [style.background-color]="item%2==0 ? 'red':'green'">{{i}}=>{{item}}</h2>
+    
+
+</div> -->
+
+
+
+<!-- <button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>  
+show = {{show}}  
+<br>  
+<div *ngIf="show">Text to show</div>
+
+<br>
+
+<div *ngIf="num%2==0; else elseBlock">even</div>  
+<ng-template #elseBlock>odd</ng-template>  
+
+<br>
+
+
+<li *ngFor="let item of list1;index as i"> {{list1[i]}} </li>  
+
+<li *ngFor="let user of list1; index as i; first as isFirst">
+  {{i}}/{{list1.length}}. {{list1}} <span *ngIf="isFirst">default</span>
+</li> -->
+
+
+<!-- <li *ngFor="let item of list1;index as i"> 
+
+
+</li>   --> 
+
